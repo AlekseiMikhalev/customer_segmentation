@@ -3,7 +3,6 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_table
 from dash.dependencies import Input, Output
-import plotly.express as px
 import plotly.graph_objs as go
 import pandas as pd
 
@@ -13,7 +12,7 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
 server = app.server # the Flask app
 
-data = pd.read_csv('Dash App_data/RFM_Segmentation.csv')
+data = pd.read_csv('RFM_Segmentation.csv')
 
 # data for Chart "Revenue per Segment"
 df = data.groupby('RFMScore')
@@ -221,7 +220,6 @@ def update_figure_customers(best, loyal, big, almost, lost, cheap):
             #'paper_bgcolor': colors['background']
         }
     }]
-
 
 
 if __name__ == '__main__':
